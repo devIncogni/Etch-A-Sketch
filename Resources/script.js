@@ -1,5 +1,6 @@
 // Variable declarations (Global)
 let gridBlocks = 16;
+let colorCode = -1;
 
 /**
  * @type {HTMLDivElement[]}
@@ -59,10 +60,10 @@ function removeOldGrid() {
 
 function dimension() {
   if (height < width) {
-    let dim = Math.floor(height / gridBlocks - 2).toString() + "px";
+    let dim = (height / gridBlocks - 2).toString() + "px";
     return dim;
   } else {
-    let dim = Math.floor(width / gridBlocks - 2).toString() + "px";
+    let dim = (width / gridBlocks - 2).toString() + "px";
     return dim;
   }
 }
@@ -107,7 +108,7 @@ function colorGenerator(doColorful) {
       ")"
     );
   } else if (doColorful == 1) {
-    return "white";
+    return "#fefefe";
   } else {
     return "black";
   }
@@ -121,29 +122,33 @@ gridSizeBtn.addEventListener("click", () => {
   removeOldGrid();
   acceptNumberofGrids();
   initializeGrid();
-  drawOnGrid();
+  colorCode = -1;
+  drawOnGrid(colorCode);
 });
 
 monoChromeBtn.addEventListener("click", () => {
   // removeOldGrid();
   // initializeGrid();
-  drawOnGrid();
+  colorCode = -1;
+  drawOnGrid(colorCode);
 });
 
 colorFulBtn.addEventListener("click", () => {
   // removeOldGrid();
   // initializeGrid();
-  drawOnGrid(0);
+  colorCode = 0;
+  drawOnGrid(colorCode);
 });
 
 btnsList[3].addEventListener("click", () => {
   // removeOldGrid();
   // initializeGrid();
-  drawOnGrid(1);
+  colorCode = 1;
+  drawOnGrid(colorCode);
 });
 
 btnsList[4].addEventListener("click", () => {
   removeOldGrid();
   initializeGrid();
-  drawOnGrid();
+  drawOnGrid(colorCode);
 });
