@@ -50,7 +50,7 @@ function acceptNumberofGrids() {
       `Enter number of grid blocks(between 1 to 100). A grid of NxN will be made.`
     );
     if (gridBlocks >= 1 && gridBlocks <= 100) {
-      initializeGrid();
+      // initializeGrid();
       break;
     } else {
       alert("Please enter a number between 1 and 100.");
@@ -91,23 +91,56 @@ function initializeGrid() {
     }
     canvasContainer.appendChild(arrOfRows[i]);
   }
-  drawOnGrid();
+  // drawOnGrid();
 }
 
-function drawOnGrid() {
+function drawOnGrid(colorCode) {
   newBlockArray = document.querySelectorAll(".row > div");
 
   newBlockArray.forEach((block) => {
     block.addEventListener("mouseover", () => {
-      block.style.backgroundColor = "black";
+      block.style.backgroundColor = colorGenerator(colorCode);
     });
   });
+}
+
+function colorGenerator(doColorful) {
+  if (doColorful == 0) {
+    return (
+      "rgb(" +
+      Math.floor(255 * Math.random()).toString() +
+      ", " +
+      Math.floor(255 * Math.random()).toString() +
+      ", " +
+      Math.floor(255 * Math.random()).toString() +
+      ")"
+    );
+  } else if (doColorful == 1) {
+    return "white";
+  } else {
+    return "black";
+  }
 }
 //End of functions
 
 initializeGrid();
+drawOnGrid();
 
 gridSizeBtn.addEventListener("click", () => {
   removeOldGrid();
   acceptNumberofGrids();
+  initializeGrid();
+  drawOnGrid();
+});
+
+monoChromeBtn.addEventListener("click", () => {
+  removeOldGrid();
+  initializeGrid();
+  drawOnGrid();
+});
+
+colorFulBtn.addEventListener("click", () => {
+  removeOldGrid();
+  initializeGrid();
+  drawOnGrid(0)
 });
