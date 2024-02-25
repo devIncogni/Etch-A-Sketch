@@ -12,14 +12,34 @@ let arrOfBlocksInRows = [];
 let arrOfRows = [];
 
 const btnsList = document.querySelectorAll("#buttonsContainer > div > button");
+
+/**
+ *  @type {HTMLButtonElement}
+ */
+const gridSizeBtn = btnsList[0];
+
+/**
+ *  @type {HTMLButtonElement}
+ */
+const monoChromeBtn = btnsList[1];
+
+/**
+ *  @type {HTMLButtonElement}
+ */
+const colorFulBtn = btnsList[2];
+
 /**
  * @type {HTMLDivElement}
  */
-
 const canvasContainer = document.querySelector("#canvasContainer");
 
 const height = canvasContainer.offsetHeight;
 const width = canvasContainer.offsetWidth;
+
+/**
+ * @type {HTMLDivElement[]}
+ */
+let newBlockArray = [];
 
 // End Variable Declarations
 
@@ -38,15 +58,22 @@ function acceptNumberofGrids() {
   }
 }
 
+function removeOldGrid() {
+  arrOfRows.forEach((row) => {
+    canvasContainer.removeChild(row);
+  });
+  arrOfBlocksInRows = [];
+  arrOfRows = [];
+}
+
 function dimension() {
-    if (height < width) {
-        // console.log(height);
-        let dim = (height/gridBlocks - 2).toString()+"px"
-        return dim;
-    } else {
-        let dim = (width/gridBlocks - 2).toString()+"px"
-        return dim;
-    }
+  if (height < width) {
+    let dim = Math.floor(height / gridBlocks - 2).toString() + "px";
+    return dim;
+  } else {
+    let dim = Math.floor(width / gridBlocks - 2).toString() + "px";
+    return dim;
+  }
 }
 
 function initializeGrid() {
@@ -64,8 +91,23 @@ function initializeGrid() {
     }
     canvasContainer.appendChild(arrOfRows[i]);
   }
+  drawOnGrid();
+}
+
+function drawOnGrid() {
+  newBlockArray = document.querySelectorAll(".row > div");
+
+  newBlockArray.forEach((block) => {
+    block.addEventListener("mouseover", () => {
+      block.style.backgroundColor = "black";
+    });
+  });
 }
 //End of functions
-// acceptNumberofGrids();
+
 initializeGrid();
-// dimension();
+
+gridSizeBtn.addEventListener("click", () => {
+  removeOldGrid();
+  acceptNumberofGrids();
+});
