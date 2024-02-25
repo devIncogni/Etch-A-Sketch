@@ -1,0 +1,99 @@
+/* Generic Start */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 100vw;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #212728;
+    text-align: center;
+}
+
+/* Generic End */
+
+/* Button Container Start */
+#buttonsContainer {
+    margin: 5px 0 0 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+#buttonsContainer>div {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    flex: 1;
+}
+
+#buttonsContainer>div>button {
+    margin: 0;
+    border: 0;
+    padding: 8px;
+    font-size: 16px;
+    transition: 0.5s;
+    border-radius: 4px;
+    background-color: #1779ba;
+    color: #fefefe;
+}
+
+#buttonsContainer>div>button:hover {
+    margin: 0;
+    border: 0;
+    padding: 8px;
+    font-size: 16px;
+    transition: 0.5s;
+    border-radius: 4px;
+    background-color: #12649c;
+    color: #fefefe;
+    cursor: pointer;
+}
+
+/* Button Container End */
+
+/* Canvas Container Start */
+#canvasContainer {
+    border: 0;
+    margin: 0;
+    padding: 40px;
+    /* min-height: 80vh; */
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+}
+
+.blocksInRows {
+    border: 1px solid black;
+}
+
+/* Canvas Container End */
+
+/* Footer Start */
+#footer {
+    border: 0;
+    margin: 0;
+    padding: 32px;
+    background-color: #212728;
+    color: #fefefe;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Footer End */
