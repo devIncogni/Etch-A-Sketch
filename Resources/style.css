@@ -1,9 +1,4 @@
 /* Generic Start */
-html{
-    width: fit-content;
-    height: fit-content;
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -86,8 +81,8 @@ h1 {
 
 .blocksInRows {
     border: 1px solid black;
-    height: 127.75px;
-    width: 187.75px;
+    /* height: 127.75px;
+    width: 187.75px; */
 }
 
 /* Canvas Container End */
