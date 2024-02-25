@@ -13,19 +13,10 @@ let arrOfRows = [];
 
 const btnsList = document.querySelectorAll("#buttonsContainer > div > button");
 
-/**
- *  @type {HTMLButtonElement}
- */
 const gridSizeBtn = btnsList[0];
 
-/**
- *  @type {HTMLButtonElement}
- */
 const monoChromeBtn = btnsList[1];
 
-/**
- *  @type {HTMLButtonElement}
- */
 const colorFulBtn = btnsList[2];
 
 /**
@@ -134,13 +125,25 @@ gridSizeBtn.addEventListener("click", () => {
 });
 
 monoChromeBtn.addEventListener("click", () => {
-  removeOldGrid();
-  initializeGrid();
+  // removeOldGrid();
+  // initializeGrid();
   drawOnGrid();
 });
 
 colorFulBtn.addEventListener("click", () => {
+  // removeOldGrid();
+  // initializeGrid();
+  drawOnGrid(0);
+});
+
+btnsList[3].addEventListener("click", () => {
+  // removeOldGrid();
+  // initializeGrid();
+  drawOnGrid(1);
+});
+
+btnsList[4].addEventListener("click", () => {
   removeOldGrid();
   initializeGrid();
-  drawOnGrid(0)
+  drawOnGrid();
 });
