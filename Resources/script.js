@@ -1,6 +1,16 @@
 // Variable declarations (Global)
 let gridBlocks = 16;
 
+/**
+ * @type {HTMLDivElement[]}
+ */
+let arrOfBlocksInRows = [];
+
+/**
+ * @type {HTMLDivElement[]}
+ */
+let arrOfRows = [];
+
 const btnsList = document.querySelectorAll("#buttonsContainer > div > button");
 const canvasContainer = document.querySelector("#canvasContainer");
 
@@ -19,11 +29,21 @@ function acceptNumberofGrids() {
     }
   }
 }
+
+function initializeGrid() {
+  for (let i = 0; i < gridBlocks; i++) {
+    arrOfRows[i] = document.createElement("div");
+    arrOfRows[i].classList.add("row");
+
+    for (let j = 0; j < gridBlocks; j++) {
+      arrOfBlocksInRows[j] = document.createElement("div");
+      arrOfBlocksInRows[j].classList.add("blocksInRows");
+
+      arrOfRows[i].appendChild(arrOfBlocksInRows[j]);
+    }
+    canvasContainer.appendChild(arrOfRows[i]);
+  }
+}
 //End of functions
 
-let arrOfRows;
-let arrOfBlocksInRows;
-
-
-const row = document.createElement("div");
-const blocksInRows = document.createElement("div");
+// initializeGrid();
