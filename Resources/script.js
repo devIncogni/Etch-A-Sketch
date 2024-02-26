@@ -150,5 +150,7 @@ btnsList[3].addEventListener("click", () => {
 btnsList[4].addEventListener("click", () => {
   removeOldGrid();
   initializeGrid();
-  drawOnGrid(colorCode);
+  if (colorCode == 1) {
+    drawOnGrid();
+  } else drawOnGrid(colorCode);
 });

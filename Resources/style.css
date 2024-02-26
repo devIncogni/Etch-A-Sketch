@@ -68,12 +68,20 @@ h1 {
 /* Button Container End */
 
 /* Canvas Container Start */
+#container {
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    flex: auto;
+}
+
 #canvasContainer {
     border: 0;
-    margin: 10px;
+    margin: 0;
     padding: 0;
-    /* min-height: 80vh; */
-    flex: auto;
+    height: 500px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,8 +95,8 @@ h1 {
 .blocksInRows {
     border: 1px solid rgb(122, 122, 122);
     background-color: #fefefe;
-    /* height: 127.75px;
-    width: 187.75px; */
+    /* height: 50px;
+    width: 50px; */
 }
 
 /* Canvas Container End */
